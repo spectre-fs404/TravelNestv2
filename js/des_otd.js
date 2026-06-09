@@ -15,9 +15,14 @@ function getDestinationOfTheDay(destinationsArray) {
 
 // 2. Fetch the data and update the HTML once the page loads
 document.addEventListener('DOMContentLoaded', () => {
+    const BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : './';
+    const ASSET_BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : '';
+    function normalizeAssetUrl(url) {
+        return url && url.startsWith('assets/') ? ASSET_BASE_PATH + url : url;
+    }
     
     // Point this fetch to exactly where your JSON file is saved
-    fetch('./data/destinations.json')
+    fetch(`${BASE_PATH}data/destinations.json`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Could not load the destinations JSON');
@@ -30,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Target your existing HTML elements and swap the data
             const imgElement = document.getElementById('daily-img');
-            imgElement.src = dailyDest.image;
+            imgElement.src = normalizeAssetUrl(dailyDest.image);
             imgElement.alt = dailyDest.name; // For accessibility
 
             document.getElementById('daily-name').textContent = dailyDest.name;

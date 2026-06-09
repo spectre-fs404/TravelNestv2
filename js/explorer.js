@@ -36,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const cellFood = document.getElementById("cost-cell-food");
     const cellTransport = document.getElementById("cost-cell-transport");
 
+    const ASSET_BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : '';
+    function normalizeAssetUrl(url) {
+        return url && url.startsWith('assets/') ? ASSET_BASE_PATH + url : url;
+    }
+
     let targetedModalRecordId = null;
 
     // Initialize Component Engine Data Sequence
@@ -75,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 aria-label="Toggle structural saved tracking profile">
                             ${isSaved ? '<i class="fa fa-heart" id ="fafa-heart-submitted"></i>' : '<i class="fa fa-heart" id ="fafa-heart-not-submitted"></i>'}
                         </button>
-                        <img src="${item.image}" alt="${item.name}, ${item.country}" onerror="this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600'">
+                        <img src="${normalizeAssetUrl(item.image)}" alt="${item.name}, ${item.country}" onerror="this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600'">
                     </div>
                     <div class="card-details-panel">
                         <div class="card-title-row">
@@ -178,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targetedModalRecordId = targetId;
 
         // Populate Static Copy Text Layers
-        modalHeroBg.style.backgroundImage = `url('${matchingProfile.image}')`;
+        modalHeroBg.style.backgroundImage = `url('${normalizeAssetUrl(matchingProfile.image)}')`;
         modalDestTitle.textContent = matchingProfile.name;
         modalDestLocation.textContent = `${matchingProfile.country}, ${matchingProfile.continent}`;
         modalDestStars.textContent = matchingProfile.stars;

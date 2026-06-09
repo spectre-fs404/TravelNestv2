@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let destinationsPool = [];
     let currentDestination = null;
+    const ASSET_BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : '';
+    function normalizeAssetUrl(url) {
+        return url && url.startsWith('assets/') ? ASSET_BASE_PATH + url : url;
+    }
 
     // 1. Fetch JSON Data
     fetch('../data/destinations.json')
@@ -68,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultStatusText.textContent = "We found the perfect spot for you!";
 
         // Populate UI Data
-        document.getElementById('dest-img').src = dest.image;
+        document.getElementById('dest-img').src = normalizeAssetUrl(dest.image);
         document.getElementById('dest-name').textContent = dest.name;
         document.getElementById('dest-stars').textContent = dest.stars;
         document.getElementById('dest-location').textContent = `${dest.country}, ${dest.continent}`;

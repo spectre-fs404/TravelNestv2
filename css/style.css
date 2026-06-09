@@ -469,10 +469,12 @@ img {
 
 /* About Us / Why Choose Us */
 .about-us {
-    padding: 120px 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    align-items: stretch;
+    justify-items: stretch;
     font-family: var(--main-font);
     color: white;
     background-color: #1e1e1e;
@@ -482,17 +484,39 @@ img {
 }
 
 .about-us-text {
-    width: 45%;
+    width: 100%;
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-us-media {
-    width: 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+}
+
+.about-us-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+}
+
+.about-us-media {
+    /* Image container uses the full right column and covers the full section height */
+    min-height: 100%;
 }
 
 .about-us-media img {
     width: 100%;
-    height: auto;
-    border-radius: 30px;
+    height: 100%;
+    border-radius: 0;
     object-fit: cover;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }

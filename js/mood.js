@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let allDestinations = [];
     let currentDestination = null;
 
+    const ASSET_BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : '';
+    function normalizeAssetUrl(url) {
+        return url && url.startsWith('assets/') ? ASSET_BASE_PATH + url : url;
+    }
+
     // 2. FIXED FETCH PATH: Use correct path from pages folder
     fetch('../data/destinations.json')
         .then(res => {
@@ -87,15 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (globalBgVideo) globalBgVideo.style.opacity = 0;
 
         setTimeout(() => {
-            if (dest.video) {
+                if (dest.video) {
                 // 1. Update and force-play main cinematic window video
-                videoElement.src = dest.video;
+                videoElement.src = normalizeAssetUrl(dest.video);
                 videoElement.style.opacity = 1;
                 videoElement.play().catch(e => console.log("Playback blocked:", e));
 
                 // 2. Update and force-play full page blurred background video
                 if (globalBgVideo) {
-                    globalBgVideo.src = dest.video;
+                    globalBgVideo.src = normalizeAssetUrl(dest.video);
                     globalBgVideo.style.opacity = 0.4;
                     globalBgVideo.play().catch(e => console.log("Playback blocked:", e));
                 }
@@ -110,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         destinations.forEach(dest => {
             const card = document.createElement('div');
             card.className = 'slider-card';
-            card.style.backgroundImage = `url(${dest.image || ''})`;
+            card.style.backgroundImage = `url(${normalizeAssetUrl(dest.image || '')})`;
             card.innerHTML = `<h4>${dest.name}</h4>`;
 
             card.addEventListener('click', () => loadDestination(dest));
