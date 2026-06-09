@@ -469,21 +469,32 @@ img {
 
 /* About Us / Why Choose Us */
 .about-us {
-
     padding: 120px 10%;
     display: flex;
     align-items: center;
-    background-image: url("../assets/images/section-3-bg.png");
-    background-position-x: right;
-    background-repeat: no-repeat;
     justify-content: space-between;
     font-family: var(--main-font);
     color: white;
     background-color: #1e1e1e;
+    /* background-image: url("../assets/images/section-3-bg.png"); */
+    /* background-position-x: right; */
+    /* background-repeat: no-repeat; */
 }
 
 .about-us-text {
     width: 45%;
+}
+
+.about-us-media {
+    width: 45%;
+}
+
+.about-us-media img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 .title-about-us {

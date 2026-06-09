@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize Component Engine Data Sequence
     async function fetchDestinationsData() {
         try {
-            const response = await fetch(DATA_SOURCE_URL);
+            const response = await fetch("../data/destinations.json");
             if (!response.ok) throw new Error(`HTTP network error status: ${response.status}`);
             destinationsRegistry = await response.json();
             renderGridMatrix(destinationsRegistry);
