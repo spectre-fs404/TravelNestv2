@@ -17,7 +17,7 @@ function getDestinationOfTheDay(destinationsArray) {
 document.addEventListener('DOMContentLoaded', () => {
     
     // Point this fetch to exactly where your JSON file is saved
-    fetch('/data/destinations.json')
+    fetch('./data/destinations.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Could not load the destinations JSON');
