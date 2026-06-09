@@ -478,9 +478,21 @@ img {
     font-family: var(--main-font);
     color: white;
     background-color: #1e1e1e;
-    /* background-image: url("../assets/images/section-3-bg.png"); */
-    /* background-position-x: right; */
-    /* background-repeat: no-repeat; */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Full-section background layer (z-index) */
+.about-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/images/section-3-bg.png");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 0;
 }
 
 .about-us-text {
@@ -489,6 +501,8 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .about-us-media {
@@ -496,16 +510,12 @@ img {
     overflow: hidden;
     min-height: 100%;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .about-us-media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
+    display: none; /* image now rendered by the background layer */
 }
 
 .about-us-media {
@@ -513,6 +523,7 @@ img {
     min-height: 100%;
 }
 
+/* keep reserved styles in case you want to re-enable the img later */
 .about-us-media img {
     width: 100%;
     height: 100%;
