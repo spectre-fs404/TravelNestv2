@@ -473,7 +473,7 @@ img {
     padding: 120px 10%;
     display: flex;
     align-items: center;
-    background-image: url(assets/images/section-3-bg.png);
+    background-image: url(/assets/images/section-3-bg.png);
     background-position-x: right;
     background-repeat: no-repeat;
     justify-content: space-between;
