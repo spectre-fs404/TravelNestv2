@@ -546,6 +546,8 @@ img {
     color: black;
     transition: 0.3s ease;
     text-decoration: none;
+    display: inline-flex;
+    align-self: flex-start;
 }
 
 .about-us-btn:hover {
