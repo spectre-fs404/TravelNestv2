@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    background-image: url(./assets/images/bg.png);
+    background-image: url("./assets/images/bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -473,7 +473,7 @@ img {
     padding: 120px 10%;
     display: flex;
     align-items: center;
-    background-image: url(./assets/images/section-3-bg.png);
+    background-image: url("./assets/images/section-3-bg.png");
     background-position-x: right;
     background-repeat: no-repeat;
     justify-content: space-between;
