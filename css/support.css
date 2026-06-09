@@ -20,7 +20,7 @@ body {
   background-image: linear-gradient(to bottom,
         rgba(0, 0, 0, 0.7),   /* top: dark */
         rgba(0, 0, 0, 0.0)    /* bottom: transparent */
-    ), url(/assets/images/bg.png);
+    ), url(assets/images/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

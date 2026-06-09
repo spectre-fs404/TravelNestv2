@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // API Configuration Endpoint
-    const DATA_SOURCE_URL = "../data/destinations.json";
+    const DATA_SOURCE_URL = "data/destinations.json";
 
     // Core Application Storage Array Buffers
     let destinationsRegistry = [];

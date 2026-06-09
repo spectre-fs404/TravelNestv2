@@ -4,7 +4,7 @@
     "name": "Ella",
     "country": "Sri Lanka",
     "continent": "Asia",
-    "image": "../../assets/images/destinations/Srilanka/ella.png",
+    "image": "assets/images/destinations/Srilanka/ella.png",
     "description": "Misty green mountains, iconic tea plantations, and stunning railway bridges tucked away in the highlands.",
     "stars": "★★★★☆",
     "attractions": ["Nine Arch Bridge", "Little Adam's Peak", "Ravana Falls"],
@@ -16,7 +16,7 @@
     "travelType": "nature",
     "budgetRange": "low",
     "mood": "hills",
-    "video": "../../assets/videos/ella.mp4"
+    "video": "assets/videos/ella.mp4"
   
   
   },
@@ -25,7 +25,7 @@
     "name": "Bali",
     "country": "Indonesia",
     "continent": "Asia",
-    "image": "../../assets/images/destinations/Indonesia/bali.png",
+    "image": "assets/images/destinations/Indonesia/bali.png",
     "description": "Sacred temples, lush terraced rice fields, and world-class surf beaches make this a tropical paradise.",
     "stars": "★★★★★",
     "attractions": ["Ubud Monkey Forest", "Uluwatu Temple", "Tegallalang Rice Terrace"],
@@ -37,7 +37,7 @@
     "travelType": "relaxation",
     "budgetRange": "medium",
     "mood": "beach",
-    "video": "../../assets/videos/bali.mp4"
+    "video": "assets/videos/bali.mp4"
 
 
   },
@@ -46,7 +46,7 @@
     "name": "Amalfi Coast",
     "country": "Italy",
     "continent": "Europe",
-    "image": "../../assets/images/destinations/Italy/Amalfi.png",
+    "image": "assets/images/destinations/Italy/Amalfi.png",
     "description": "Pastel-colored villages stacked vertically on dramatic cliffs overlooking the stunning Mediterranean Sea.",
     "stars": "★★★★★",
     "attractions": ["Positano Village", "Villa Rufolo", "Path of the Gods"],
@@ -58,7 +58,7 @@
     "travelType": "cultural",
     "budgetRange": "high",
     "mood": "city",
-    "video": "../../assets/videos/amalfi.mp4"
+    "video": "assets/videos/amalfi.mp4"
 
   },
   {
@@ -66,7 +66,7 @@
     "name": "Maldives",
     "country": "Maldives",
     "continent": "Asia",
-    "image": "../../assets/images/destinations/Maldives/maldives.png",
+    "image": "assets/images/destinations/Maldives/maldives.png",
     "description": "A breathtaking archipelago known for crystal-clear turquoise lagoons, coral reefs, and luxury overwater bungalows.",
     "stars": "★★★★★",
     "attractions": ["Maafushi Island", "Bioluminescent Beach", "Banana Reef Dive"],
@@ -78,7 +78,7 @@
     "travelType": "relaxation",
     "budgetRange": "high",
     "mood": "beach",
-    "video": "../../assets/videos/maldives.mp4"
+    "video": "assets/videos/maldives.mp4"
 
   },
   {
@@ -86,7 +86,7 @@
     "name": "Kyoto",
     "country": "Japan",
     "continent": "Asia",
-    "image": "../../assets/images/destinations/Japan/kyoto.png",
+    "image": "assets/images/destinations/Japan/kyoto.png",
     "description": "Beautifully preserved wooden machiya houses, historic Buddhist temples, and vibrant, towering bamboo groves.",
     "stars": "★★★★☆",
     "attractions": ["Fushimi Inari Shrine", "Arashiyama Bamboo Grove", "Kinkaku-ji (Golden Pavilion)"],
@@ -98,7 +98,7 @@
     "travelType": "cultural",
     "budgetRange": "medium",
     "mood": "forest",
-    "video": "../../assets/videos/kyoto.mp4"
+    "video": "assets/videos/kyoto.mp4"
 
   },
   {
@@ -106,7 +106,7 @@
     "name": "Banff",
     "country": "Canada",
     "continent": "North America",
-    "image": "../../assets/images/destinations/Canada/banff.png",
+    "image": "assets/images/destinations/Canada/banff.png",
     "description": "Neon-blue glacial lakes surrounded by the majestic, snow-capped peaks of the Canadian Rockies.",
     "stars": "★★★★★",
     "attractions": ["Lake Louise", "Moraine Lake", "Banff Gondola"],
@@ -118,7 +118,7 @@
     "travelType": "adventure",
     "budgetRange": "high",
     "mood": "forest",
-    "video": "../../assets/videos/banff.mp4"
+    "video": "assets/videos/banff.mp4"
   
   
   },
@@ -127,7 +127,7 @@
     "name": "Oaxaca",
     "country": "Mexico",
     "continent": "North America",
-    "image": "../../assets/images/destinations/Mexico/oaxaca.png",
+    "image": "assets/images/destinations/Mexico/oaxaca.png",
     "description": "A colorful colonial city famous for its incredible culinary scene, indigenous markets, and ancient ruins.",
     "stars": "★★★★☆",
     "attractions": ["Monte Albán", "Hierve el Agua", "Mercado 20 de Noviembre"],
@@ -139,7 +139,7 @@
     "travelType": "cultural",
     "budgetRange": "low",
     "mood": "city",
-    "video": "../../assets/videos/oaxaca.mp4"
+    "video": "assets/videos/oaxaca.mp4"
 
   },
   {
@@ -147,7 +147,7 @@
     "name": "Queenstown",
     "country": "New Zealand",
     "continent": "Oceania",
-    "image": "../../assets/images/destinations/NZ/queenstown.png",
+    "image": "assets/images/destinations/NZ/queenstown.png",
     "description": "The adventure capital of the world, nestled alongside a crystal-clear lake and rugged mountain ranges.",
     "stars": "★★★★★",
     "attractions": ["Milford Sound", "Kawarau Bridge Bungee", "Skyline Gondola"],
@@ -159,7 +159,7 @@
     "travelType": "adventure",
     "budgetRange": "medium",
     "mood": "hills",
-    "video": "../../assets/videos/queenstown.mp4"
+    "video": "assets/videos/queenstown.mp4"
 
   },
   {
@@ -167,7 +167,7 @@
     "name": "Cape Town",
     "country": "South Africa",
     "continent": "Africa",
-    "image": "../../assets/images/destinations/SA/capetown.png",
+    "image": "assets/images/destinations/SA/capetown.png",
     "description": "Where dramatic flat-topped mountains meet two oceans, complete with penguins on the beach and world-class vineyards.",
     "stars": "★★★★☆",
     "attractions": ["Table Mountain", "Boulders Beach", "Cape of Good Hope"],
@@ -180,14 +180,14 @@
     "budgetRange": "medium",
 
     "mood": "beach",
-    "video": "../../assets/videos/capetown.mp4"
+    "video": "assets/videos/capetown.mp4"
   },
   {
     "id": 10,
     "name": "Santorini",
     "country": "Greece",
     "continent": "Europe",
-    "image": "../../assets/images/destinations/Greece/santorini.png",
+    "image": "assets/images/destinations/Greece/santorini.png",
     "description": "Iconic whitewashed buildings with deep-blue domes contrasted against the brilliant Aegean Sea.",
     "stars": "★★★★★",
     "attractions": ["Oia Sunset", "Red Beach", "Akrotiri Archaeological Site"],
@@ -199,7 +199,7 @@
     "travelType": "relaxation",
     "budgetRange": "high",
     "mood": "city",
-    "video": "../../assets/videos/santorini.mp4"
+    "video": "assets/videos/santorini.mp4"
 
 
   }

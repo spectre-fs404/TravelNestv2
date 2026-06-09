@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Replaced local files with reliable online ambient sound placeholders
     const audioFiles = {
-        beach: new Audio('../../assets/audio/beach.mp3'),
-        forest: new Audio('../../assets/audio/forest.mp3'),
-        city: new Audio('../../assets/audio/city.mp3'),
-        hills: new Audio('../../assets/audio/hills.mp3')
+        beach: new Audio('assets/audio/beach.mp3'),
+        forest: new Audio('assets/audio/forest.mp3'),
+        city: new Audio('assets/audio/city.mp3'),
+        hills: new Audio('assets/audio/hills.mp3')
     };
 
     Object.values(audioFiles).forEach(audio => { audio.loop = true; audio.volume = 0.5; });
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentDestination = null;
 
     // 2. FIXED FETCH PATH: Changed backslash (\) to forward slash (/)
-    fetch('/data/destinations.json')
+    fetch('data/destinations.json')
         .then(res => {
             if (!res.ok) throw new Error("Failed to load JSON");
             return res.json();

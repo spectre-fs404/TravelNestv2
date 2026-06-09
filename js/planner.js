@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let computedActiveTrip = null;
 
   // 1. Fetch JSON Data & Safely Map to Datalist Pool Option Nodes
-  fetch('../data/destinations.json')
+  fetch('data/destinations.json')
     .then(res => {
       if (!res.ok) throw new Error("Network path verification failed.");
       return res.json();

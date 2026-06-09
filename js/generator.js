@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentDestination = null;
 
     // 1. Fetch JSON Data
-    fetch('../data/destinations.json')
+    fetch('data/destinations.json')
         .then(res => {
             if (!res.ok) throw new Error("Network response was not ok");
             return res.json();
