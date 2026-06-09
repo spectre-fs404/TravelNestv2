@@ -1,0 +1,411 @@
+:root {
+    --title-font: "Anton", sans-serif;
+    --main-font: "Alumni Sans", sans-serif;
+}
+
+html {
+    background-color: #050505 !important;
+    scroll-behavior: smooth;
+}
+
+/* Make the body completely see-through so the video below it is visible */
+body {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+
+
+/* 2. CRITICAL: Ensure the mood board window itself isn't blocking the view */
+#mood-page-wrapper {
+    background-color: transparent !important;
+}
+
+/* 3. The Video Container */
+.global-bg-container {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    z-index: -10;
+    /* Because body is transparent, this will now show perfectly */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#global-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    transform: scale(1.1);
+    transition: opacity 1s ease-in-out;
+    opacity: 0.7;
+    /* Bumped up to 0.7 so it pushes through the dark overlay more visibly */
+}
+
+.global-bg-overlay {
+    position: absolute;
+    inset: 0;
+    /* Slightly lightened the bottom from 0.95 to 0.85 so the blur isn't fully choked out */
+    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.85) 100%);
+    z-index: -9;
+}
+
+
+.page-wrapper {
+    background-color: transparent;
+}
+
+.tn-cinematic-window {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 60px auto;
+    height: 75vh;
+    /* Massive vertical space */
+    min-height: 600px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 100px var(--vibe-glow);
+    /* Ambient glow bleeds out */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: box-shadow 1s ease-in-out;
+}
+
+/* --- Dynamic Vibe Colors --- */
+.tn-cinematic-window {
+    --vibe-glow: rgba(79, 195, 247, 0.15);
+    /* Beach Blue Default */
+    --vibe-accent: #4fc3f7;
+    --vibe-overlay: linear-gradient(to top, rgba(0, 5, 15, 0.95) 0%, rgba(0, 5, 15, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.tn-cinematic-window.vibe-forest {
+    --vibe-glow: rgba(116, 198, 157, 0.15);
+    --vibe-accent: #74c69d;
+    --vibe-overlay: linear-gradient(to top, rgba(5, 15, 10, 0.95) 0%, rgba(5, 15, 10, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.tn-cinematic-window.vibe-city {
+    --vibe-glow: rgba(179, 57, 57, 0.15);
+    --vibe-accent: #ff4757;
+    --vibe-overlay: linear-gradient(to top, rgba(15, 5, 10, 0.95) 0%, rgba(15, 5, 10, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.tn-cinematic-window.vibe-hills {
+    --vibe-glow: rgba(212, 225, 87, 0.15);
+    --vibe-accent: #d4e157;
+    --vibe-overlay: linear-gradient(to top, rgba(15, 15, 5, 0.95) 0%, rgba(15, 15, 5, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* --- Edge-to-Edge Video --- */
+.video-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+#destination-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease;
+}
+
+.cinematic-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--vibe-overlay);
+    z-index: 2;
+    transition: background 1s ease-in-out;
+}
+
+/* --- Top Floating Dock --- */
+.cinematic-header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    z-index: 10;
+    color: white;
+    font: var(--main-font);
+    font-weight: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tn-glass-dock {
+    display: flex;
+    gap: 8px;
+    background: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(20px);
+    padding: 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mood-pill {
+    background: transparent;
+    border: none;
+    color: var(--tn-text-muted);
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mood-pill:hover {
+    color: #fff;
+}
+
+.mood-pill.active {
+    background: var(--vibe-accent);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Audio Pulse Indicator --- */
+.audio-pulse {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pulse-ring {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--vibe-accent);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    animation: none;
+}
+
+.audio-pulse.playing .pulse-ring {
+    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+        background: transparent;
+    }
+}
+
+/* --- Bottom Content Layout --- */
+.cinematic-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    z-index: 10;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.destination-showcase {
+    flex: 1;
+}
+
+.location-tag {
+    color: var(--vibe-accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+    transition: color 1s ease;
+}
+
+.glitch-title {
+    font-family: var(--main-font);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0 0 24px 0;
+    color: #fff;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Glass Buttons --- */
+.action-row {
+    display: flex;
+    gap: 16px;
+}
+
+.tn-btn-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tn-btn-glass:hover {
+    background: var(--vibe-accent);
+    color: #000;
+    border-color: var(--vibe-accent);
+    transform: translateY(-3px);
+}
+
+.tn-btn-glass.outline {
+    background: transparent;
+}
+
+/* --- Mini Slider --- */
+.slider-module {
+    width: 400px;
+
+
+}
+
+.module-title {
+    font-size: 0.9rem;
+    color: #aaa;
+    font: var(--main-font);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#current-vibe-text {
+    color: var(--vibe-accent);
+    font-weight: bold;
+}
+
+.mood-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    border-radius: 0px 50px 10px 0px;
+}
+
+.mood-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-card {
+    min-width: 140px;
+    height: 90px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    font: var(--main-font);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.slider-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.slider-card h4 {
+    position: absolute;
+    font: var(--main-font);
+    bottom: 10px;
+    left: 12px;
+    color: white;
+
+    margin: 0;
+    z-index: 2;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.slider-card:hover {
+    transform: scale(1.05);
+    border-color: var(--vibe-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* navbar opacity thing  */
+
+
+.nav-bar-container {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
+}
+
+
+.nav-bar-container.navbar-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+    /* Prevents clicking on links while they are invisible */
+    transform: translateY(-10px);
+    /* Optional: subtly slides up as it fades */
+}
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .cinematic-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .slider-module {
+        width: 100%;
+    }
+
+    .glitch-title {
+        font-size: 3.5rem;
+    }
+
+    .cinematic-header {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .nav-bar-container.navbar-hidden {
+        opacity: 1 !important;
+        pointer-events: auto;
+        /* Prevents clicking on links while they are invisible */
+        transform: translateY(0px);
+        /* Optional: subtly slides up as it fades */
+    }
+
+}

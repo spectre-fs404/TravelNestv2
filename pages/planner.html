@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Planner</title>
+
+    <!-- css links  -->
+    <link rel="stylesheet" href="/css/template.css">
+    <link rel="stylesheet" href="/css/loading.css">
+    <link rel="stylesheet" href="/css/planner.css">
+
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300;400;700&family=Anton&display=swap"
+        rel="stylesheet">
+
+        <!-- icons  -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <!-- ////////////////////////////// -->
+    <!-- template  -->
+    <!-- ////////////////////////////  -->
+
+    <div id="custom-cursor"></div>
+
+    <div class="hero-container">
+        <div class="nav-bar-container">
+            <h1 class="logo-nav">TravelNest</h1>
+            <!-- Added mobile menu toggle button (White Circle) -->
+            <div class="menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="navbar" id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Destinations</a></li>
+                    <li> <a href="planner.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Trip Generator</a></li>
+                    <li><a href="mood.html">Mood Board</a></li>
+                    <li class="active-mobile"><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="hero-banner">
+            <div class="overlay"></div>
+            <div class="slide active"><img src="../assets/images/destinations/SA/capetown.png" alt="Hero 1"></div>
+            <div class="slide"><img src="../assets/images/destinations/Japan/kyoto.png" alt="Hero 2"></div>
+            <div class="slide"><img src="../assets/images/destinations/NZ/queenstown.png" alt="Hero 3"></div>
+
+            <div class="text-container-hero">
+                <h2 class="hero-title">EXPLORE BEYOND HORIZONS</h2>
+
+               <a href="#section-2" class="hero-btn">Get Started</a>
+
+            </div>
+        </div>
+    </div>
+  
+
+    <div class="page-wrapper">
+
+
+        <div class="tn-planner-wrapper" id="section-2">
+            <header class="tn-planner-hero">
+                <div class="hero-content">
+                    <span class="tn-badge-pill">Smart Travel Assistant</span>
+                    <h1>Plan Your Spending.</h1>
+                    <p>Calculate realistic trip costs against real-world location data instantly.</p>
+                </div>
+                <div class="hero-btn-group">
+                    <button class="tn-btn tn-btn-primary" id="scroll-to-form">Plan Now</button>
+                    <a href="explorer.html" class="tn-btn tn-btn-secondary">Find Destinations</a>
+                </div>
+            </header>
+
+            <div class="tn-progress-card">
+                <div class="progress-meta">
+                    <p class="progress-label" id="progress-text">Step 1: Define your destination targets</p>
+                    <span class="progress-status-alert" id="form-alert">Awaiting input data</span>
+                </div>
+                <div class="tn-progress-track">
+                    <div class="tn-progress-bar" id="tracker-bar"></div>
+                </div>
+            </div>
+
+            <div class="tn-dashboard-grid">
+
+                <div class="tn-card tn-form-card">
+                    <div class="card-header">
+                        <h1>Budget Configuration</h1>
+                        <p>Input your targets to cross-check real-world average data patterns</p>
+                    </div>
+
+                    <form id="tn-budget-form" autocomplete="off">
+                        <div class="tn-input-group">
+                            <label for="tn-destination">Target Destination</label>
+                            <div class="input-with-icon">
+                                <input list="destinations-pool" id="tn-destination"
+                                    placeholder="Where are you exploring?" required>
+                                <datalist id="destinations-pool"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="tn-input-row">
+                            <div class="tn-input-group">
+                                <label for="tn-days">Duration (Days)</label>
+                                <input type="number" id="tn-days" min="1" max="365" placeholder="e.g., 7" required>
+                            </div>
+
+                            <div class="tn-input-group">
+                                <label for="tn-daily-budget">Your Daily Budget ($)</label>
+                                <input type="number" id="tn-daily-budget" min="1" placeholder="e.g., 120" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions-row">
+                            <button type="submit" class="tn-btn tn-btn-primary tn-btn-wide">Analyze Expenses</button>
+                            <button type="button" class="tn-btn tn-btn-reset" id="tn-clear-btn">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tn-card tn-results-card">
+                    <div class="card-header">
+                        <h1>Budget Analysis Summary</h1>
+                        <p>Calculated dynamic results based on local lodging, food, and transit indexes</p>
+                    </div>
+
+                    <div class="results-display-area">
+                        <div class="metric-block main-metric">
+                            <span class="metric-title">Estimated Total Trip Cost</span>
+                            <div class="total-counter-view">
+                                <span class="currency-symbol">$</span><span id="txt-total-cost">0</span>
+                            </div>
+                            <p class="metric-subtext">Estimated local overhead cost for your duration</p>
+                        </div>
+
+                        <div class="metrics-split-row">
+                            <div class="metric-sub-card">
+                                <span class="metric-title">Tier Designation</span>
+                                <div class="status-pill status-pending" id="badge-budget-tier">Pending</div>
+                            </div>
+                            <div class="metric-sub-card">
+                                <span class="metric-title">Financial Safety Margin</span>
+                                <div class="status-pill status-neutral" id="badge-safety-index">--</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-actions-row">
+                        <button class="tn-btn tn-btn-success tn-btn-wide" id="tn-save-btn" disabled>Save
+                            Configuration</button>
+                        <button class="tn-btn tn-btn-secondary" id="tn-view-saved-btn">View Saved plans</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tn-saved-drawer hidden" id="saved-plans-drawer">
+                <div class="drawer-header">
+                    <h1>Stored Configurations Log</h1>
+                </div>
+
+                <div class="drawer-content" id="saved-items-container">
+                    <p class="empty-log-text">No custom configurations stored in local storage yet.</p>
+                </div>
+
+                <div class="drawer-footer">
+                    <button class="tn-btn tn-btn-secondary tn-btn-wide" id="close-drawer">Close Log</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col branding">
+                <h1>TravelNest</h1>
+                <p>Your digital sanctuary for trip planning. Organize, visualize, and map out your next great
+                    adventure all in one place.</p>
+            </div>
+
+            <div class="footer-col links">
+                <h1>Explore</h1>
+                <ul>
+                    <li>Home</li>
+                    <li>Destinations</li>
+                    <li>Budget Planner</li>
+                    <li>Trip Generator</li>
+                </ul>
+            </div>
+
+            <div class="footer-col legal">
+                <h1>Support</h1>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Terms of Service</li>
+                    <li>Privacy Policy</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+
+            <div class="footer-col social">
+                <h1>Connect</h1>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Twitter / X</li>
+                    <li>Pinterest</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-newsletter-row">
+            <div class="newsletter-inline-container">
+                <h1>Newsletter</h1>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p class="newsletter-desc">Subscribe for the latest travel updates and tips.</p>
+            <p id="newsletter-message" class="newsletter-message"></p>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 TravelNest. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- //////////////////////////////  -->
+    <!-- loading screen animation  -->
+    <!-- //////////////////////////////  -->
+    <div id="loader">
+        <div class="panel left"></div>
+        <div class="panel right"></div>
+
+        <h1 class="logo">TravelNest</h1>
+    </div>
+
+
+    <script src="/js/loading.js"></script>
+
+
+
+    <script src="/js/template.js"></script>
+
+    <!-- animations  -->
+
+    <script src="/js/cursor_animation.js"></script>
+    <script src="../js/planner.js"></script>
+
+</body>
+
+</html>

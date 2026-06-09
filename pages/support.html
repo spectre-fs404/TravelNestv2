@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Support</title>
+    <link rel="stylesheet" href="/css/template.css">
+    <link rel="stylesheet" href="/css/loading.css">
+    <link rel="stylesheet" href="/css/support.css">
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300;400;700&family=Anton&display=swap"
+        rel="stylesheet">
+
+    <!-- icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <div id="custom-cursor"></div>
+
+    <div class="hero-container">
+        <div class="nav-bar-container">
+            <h1 class="logo-nav">TravelNest</h1>
+            <!-- Added mobile menu toggle button (White Circle) -->
+            <div class="menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="navbar" id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Destinations</a></li>
+                    <li> <a href="planner.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Trip Generator</a></li>
+                    <li><a href="mood.html">Mood Board</a></li>
+                    <li class="active-mobile"><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="hero-banner">
+            <div class="overlay"></div>
+            <div class="slide active"><img src="../assets/images/destinations/Canada/banff.png" alt="Hero 1"></div>
+            <div class="slide"><img src="../assets/images/destinations/NZ/queenstown.png" alt="Hero 2"></div>
+            <div class="slide"><img src="../assets/images/destinations/Japan/kyoto.png" alt="Hero 3"></div>
+
+            <div class="text-container-hero">
+                <h2 class="hero-title">EXPLORE BEYOND HORIZONS</h2>
+           
+                    <a href="#section-2" class="hero-btn">Get Started</a>
+              
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-wrapper">
+
+        <header class="tn-planner-wrapper" id="section-2">
+            <div class="tn-planner-hero">
+                <span class="tn-badge-pill">Help & Contact</span>
+                <h1>Support Center</h1>
+                <p>Need assistance or have feedback about your TravelNest experience? We're here to help.</p>
+            </div>
+        </header>
+
+
+        <main class="tn-planner-wrapper" style="padding-top: 0;">
+            <div class="tn-support-stack">
+
+                <!-- Form Component Core Card -->
+                <div class="tn-card">
+                    <div class="card-header">
+                        <h1>Get in Touch</h1>
+                        <p>Have a question or feedback? Drop us a message below.</p>
+                    </div>
+
+                    <form id="tn-support-form" novalidate>
+                        <div class="tn-input-group">
+                            <label for="user-name">Full Name</label>
+                            <input type="text" id="user-name" placeholder="John Doe" required>
+                            <span class="validation-msg" id="name-error"></span>
+                        </div>
+
+                        <div class="tn-input-group" style="margin-top: 16px;">
+                            <label for="user-email">Email Address</label>
+                            <input type="email" id="user-email" placeholder="john@example.com" required>
+                            <span class="validation-msg" id="email-error"></span>
+                        </div>
+
+                        <div class="tn-input-group" style="margin-top: 16px;">
+                            <label for="user-message">Your Message</label>
+                            <textarea id="user-message" rows="5" placeholder="How can we help you?" required></textarea>
+                            <span class="validation-msg" id="message-error"></span>
+                        </div>
+
+                        <div class="form-actions-row" style="margin-top: 24px;">
+                            <button type="submit" class="tn-btn tn-btn-primary tn-btn-wide" id="submit-btn">Send
+                                Message</button>
+                        </div>
+
+                        <div id="form-success-msg" class="support-success-msg" style="display: none;">
+                            Thanks for reaching out! Your feedback has been saved.
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FAQ Component Core Card Comes Next Directly Below -->
+                <div class="tn-card">
+                    <div class="card-header">
+                        <h1>Frequently Asked Questions</h1>
+                        <p>Quick answers to our most common queries.</p>
+                    </div>
+
+                    <div class="tn-accordion-container">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                How does the Random Trip Generator work?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p><br>It filters our curated database based on your preferred travel vibe and budget,
+                                    then
+                                    randomly selects the perfect match for you!</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                How does the "Mood Board" help me pick the perfect trip?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p><br>Travel is about how a place feels, not just how it looks.
+                                    Our Mood Board lets you "try on" different atmospheres from serene forests to
+                                    electric cities—so we can ensure your trip's energy perfectly matches your need to
+                                    recharge.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Are the budget estimates accurate?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p><br>Our budget estimates are based on average daily costs for mid-range travel.
+                                    Actual
+                                    costs may vary depending on your specific travel style and seasonality.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                How can I keep track of all the places I have been?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p><br>Easily log your history by marking adventures as "Visited." This builds a
+                                    personal profile that helps our experts learn your specific tastes, allowing us
+                                    to provide increasingly personalized recommendations for every future getaway.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+
+
+    </div>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col branding">
+                <h1>TravelNest</h1>
+                <p>Your digital sanctuary for trip planning. Organize, visualize, and map out your next great
+                    adventure all in one place.</p>
+            </div>
+
+            <div class="footer-col links">
+                <h1>Explore</h1>
+                <ul>
+                    <li>Home</li>
+                    <li>Destinations</li>
+                    <li>Budget Planner</li>
+                    <li>Trip Generator</li>
+                </ul>
+            </div>
+
+            <div class="footer-col legal">
+                <h1>Support</h1>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Terms of Service</li>
+                    <li>Privacy Policy</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+
+            <div class="footer-col social">
+                <h1>Connect</h1>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Twitter / X</li>
+                    <li>Pinterest</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-newsletter-row">
+            <div class="newsletter-inline-container">
+                <h1>Newsletter</h1>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p class="newsletter-desc">Subscribe for the latest travel updates and tips.</p>
+            <p id="newsletter-message" class="newsletter-message"></p>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 TravelNest. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- //////////////////////////////  -->
+    <!-- loading screen animation  -->
+    <!-- //////////////////////////////  -->
+    <div id="loader">
+        <div class="panel left"></div>
+        <div class="panel right"></div>
+
+        <h1 class="logo">TravelNest</h1>
+    </div>
+
+
+    <script src="/js/loading.js"></script>
+
+
+
+
+    <script src="/js/template.js"></script>
+
+    <!-- animations  -->
+
+    <script src="/js/cursor_animation.js"></script>
+    <script src="../js/support.js"></script>
+
+
+</body>
+
+</html>

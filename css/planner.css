@@ -1,0 +1,415 @@
+/* --- Modern TravelNest Planner Core Properties --- */
+:root {
+  --tn-bg-deep: #121212;
+  --tn-card-surface: rgba(26, 26, 26, 0.85); /* Slightly translucent to let bg shine through */
+  --tn-card-inner: #242424;
+  --tn-text-main: #ffffff;
+  --tn-text-muted: #aaaaaa;
+  --tn-accent-primary: #ffffff;
+  --tn-accent-secondary: #333333;
+
+  --main-font: "Alumni Sans", sans-serif;
+  
+  /* Status Colors */
+  --tn-clr-low: #ff4757;
+  --tn-clr-mod: #ffa502;
+  --tn-clr-lux: #2ed573;
+}
+
+body {
+  background-image:linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.7),   /* top: dark */
+            rgba(0, 0, 0, 0.0)    /* bottom: transparent */
+        ), url(/assets/images/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.page-wrapper {
+  background-color: transparent;
+}
+
+.tn-planner-wrapper {
+  max-width: 1100px; /* Sweeter max-width for tighter visual container */
+  margin: 0 auto;
+  padding: 40px 24px;
+  color: var(--tn-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* --- Hero Banner Component --- */
+.tn-planner-hero {
+  text-align: center;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, rgba(28,28,28,0.9) 0%, rgba(13,13,13,0.9) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+.tn-planner-hero h1 {
+  font-family: var(--main-font);
+  font-size: 3.5rem; /* Large and bold using your branding font */
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 12px 0;
+}
+.tn-planner-hero p {
+  color: var(--tn-text-muted);
+  font-size: 1rem;
+  max-width: 550px;
+  margin: 0 auto 24px auto;
+}
+.tn-badge-pill {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.hero-btn-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* --- Global Button Styling --- */
+.tn-btn {
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.tn-btn-primary {
+  background-color: var(--tn-accent-primary);
+  color: #000000;
+}
+.tn-btn-primary:hover {
+  background-color: #e5e5e5;
+  transform: translateY(-2px);
+}
+.tn-btn-secondary {
+  background-color: transparent;
+  color: var(--tn-text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.tn-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--tn-text-main);
+}
+.tn-btn-reset {
+  background-color: transparent;
+  color: var(--tn-clr-low);
+  border: 1px solid rgba(255, 71, 87, 0.2);
+}
+.tn-btn-reset:hover {
+  background-color: rgba(255, 71, 87, 0.1);
+}
+.tn-btn-success {
+  background-color: #2ed573;
+  color: #000;
+}
+.tn-btn-success:hover:not(:disabled) {
+  background-color: #26b862;
+  transform: translateY(-2px);
+}
+.tn-btn-wide { flex: 1; }
+.tn-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* --- Progress Header Bar --- */
+.tn-progress-card {
+  background: var(--tn-card-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.progress-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.progress-status-alert {
+  font-size: 0.8rem;
+  color: var(--tn-clr-mod);
+  background: rgba(255, 165, 2, 0.1);
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+.tn-progress-track {
+  height: 6px;
+  background-color: var(--tn-card-inner);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tn-progress-bar {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, #555555, #ffffff);
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Dashboard Section Layout Grid --- */
+.tn-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Gives slightly less weight to calculation side */
+  gap: 24px;
+}
+.tn-card {
+  background-color: var(--tn-card-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 28px; /* Tighter padding for a more compact structural look */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+}
+.card-header {
+  margin-bottom: 20px; /* Reduced space */
+}
+.card-header h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.card-header p {
+  color: var(--tn-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* --- Input Form Control Styling --- */
+#tn-budget-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  justify-content: center;
+}
+.tn-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tn-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #dddddd;
+}
+.tn-input-group input {
+  background-color: var(--tn-card-inner);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 18px; /* Slightly squished height */
+  border-radius: 12px;
+  color: var(--tn-text-main);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+.tn-input-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: #2c2c2c;
+}
+.tn-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-actions-row, .results-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* --- Metric Calculations Outputs (Completely Slimmed Down) --- */
+.results-display-area {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.metric-block {
+  background-color: var(--tn-card-inner);
+  border-radius: 16px;
+  padding: 20px; /* Reduced from 30px */
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.metric-title {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--tn-text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.total-counter-view {
+  font-family: var(--main-font); /* Looks brilliant for numbers */
+  font-size: 2.8rem; /* Scaled down perfectly from 3.5rem */
+  font-weight: 700;
+  letter-spacing: 0px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.currency-symbol {
+  color: var(--tn-text-muted);
+  font-weight: 400;
+  margin-right: 2px;
+}
+.metric-subtext {
+  font-size: 0.8rem;
+  color: var(--tn-text-muted);
+}
+.metrics-split-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.metric-sub-card {
+  background-color: var(--tn-card-inner);
+  border-radius: 12px;
+  padding: 14px; /* Scaled down padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.status-pill {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.status-pending { background: #333; color: #fff; }
+.status-low { background: rgba(255, 71, 87, 0.15); color: var(--tn-clr-low); border: 1px solid rgba(255, 71, 87, 0.15); }
+.status-moderate { background: rgba(255, 165, 2, 0.15); color: var(--tn-clr-mod); border: 1px solid rgba(255, 165, 2, 0.15); }
+.status-luxury { background: rgba(46, 213, 115, 0.15); color: var(--tn-clr-lux); border: 1px solid rgba(46, 213, 115, 0.15); }
+.status-neutral { background: rgba(255,255,255,0.05); color: #fff; }
+
+/* --- Stored Configurations Slide-out Log Panel --- */
+.tn-saved-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: #161616;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  z-index: 2000;
+  padding: 30px;
+  box-sizing: border-box;
+  transform: translateX(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.tn-saved-drawer.hidden {
+  transform: translateX(100%);
+}
+
+.drawer-header {
+  margin-bottom: 20px;
+}
+
+.drawer-header h1 { 
+  font-size: 1.2rem; 
+  margin: 0; 
+}
+
+.drawer-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-right: 4px;
+}
+
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #161616;
+}
+
+.log-item-card {
+  background: var(--tn-card-inner);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+}
+
+.log-item-card h5 { font-size: 1rem; margin: 0 0 4px 0; }
+.log-item-card p { font-size: 0.8rem; color: var(--tn-text-muted); margin: 3px 0; }
+
+.delete-log-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--tn-clr-low);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* --- High Fidelity Responsive Layout Engine --- */
+@media (max-width: 900px) {
+  .tn-dashboard-grid { 
+    grid-template-columns: 1fr; /* Stacks column cards gracefully on tablets/mobile */
+    gap: 20px; 
+  }
+  .tn-card {
+    padding: 20px; /* Even cleaner, tighter padding inside mobile layouts */
+  }
+  .tn-planner-hero h1 { 
+    font-size: 2.5rem; 
+  }
+  .total-counter-view {
+    font-size: 2.3rem; /* Prevents overflow clipping on small screen breakpoints */
+  }
+  .tn-saved-drawer { 
+    width: 100%; 
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tn-input-row, .metrics-split-row {
+    grid-template-columns: 1fr; /* Stacks small inner inputs cleanly on small devices */
+    gap: 12px;
+  }
+  .hero-btn-group, .form-actions-row, .results-actions-row {
+    flex-direction: column; /* Buttons become easy-to-tap stacked bars */
+    gap: 10px;
+  }
+}

@@ -1,0 +1,72 @@
+:root {
+    --title-font: "Anton", sans-serif;
+    --main-font: "Alumni Sans", sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  background: #000;
+  font-family: var(--font-travel);
+  font-optical-sizing: auto;
+  font-weight: var(--fw-reg);
+  font-style: normal;
+
+}
+
+
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/*white panel thing*/
+.panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+.logo {
+  color: black;
+  z-index: 10;
+  font-family: var(--main-font);
+  opacity:0;
+  transition: opacity 0.5s ease-in-out;
+  animation: loading-l 0.5 ease-in-out;
+}
+
+@keyframes loading-l{
+  0%{
+    opacity: 0;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0;
+  }
+}
+
+/* Classes to trigger via JS */
+.loaded .left { transform: translateX(-100%); }
+.loaded .right { transform: translateX(100%); }
+.loaded .logo { opacity: 0; pointer-events: none; }
+
